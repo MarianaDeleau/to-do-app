@@ -1,8 +1,14 @@
-
+import React from "react";
 import ReactDOM from 'react-dom';
 import App from './App';
+import { SignUp, Users } from './pages';
 
 
-ReactDOM.render( <App />, document.getElementById('root'));
+ReactDOM.render(
+   // <React.StrictMode>
+        <Users />,
+  //  <React.StrictMode>,
 
-
+   
+    document.getElementById("root")
+            )
