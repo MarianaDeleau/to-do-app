@@ -3,10 +3,11 @@ import { } from '../src/assets'
 import { } from '../src/components'
 import { } from '../src/hooks'
 import { } from '../src/pages'
+export { api } from './utils'
 
 function App() {
   return (
-    <h1>Hola Mundo</h1>
+    <div className="App"></div>
   );
 }
 
