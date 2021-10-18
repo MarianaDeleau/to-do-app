@@ -6,5 +6,14 @@ export type User = {
     gender: string;
   };
   
-  export type Task = {};
+export type Task = {
+  id: string;
+  title: string;
+  description: string;
+  progress: string;
+  user: User;
+  creationDate: Date;
+  startDate: Date;
+  completionDate: Date;
+  };
   

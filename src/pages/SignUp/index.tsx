@@ -69,7 +69,7 @@ const SignUp: FC = () => {
           </select>
         </div>
 
-        <button type="submit">Guardar</button>
+        <button type="submit">Sign Up</button>
       </form>
     </div>
   );

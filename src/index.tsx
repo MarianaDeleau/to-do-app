@@ -1,14 +1,12 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import App from './App';
-import { SignUp, Users } from './pages';
-
+import { AddTask, SignUp, Users } from './pages';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
-   // <React.StrictMode>
-        <Users />,
-  //  <React.StrictMode>,
-
-   
+  <React.StrictMode>
+        <AddTask />
+  </React.StrictMode>,   
     document.getElementById("root")
-            )
+);
