@@ -9,6 +9,10 @@ export const menuItems = [
     },
     {
       href: "/add-tasks",
+      label: "Agregar Tareas",
+    },
+    {
+      href: "/tasks",
       label: "Tareas",
     },
     {
