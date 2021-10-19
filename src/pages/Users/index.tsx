@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { getUsers } from "../../api";
 import { User } from "../../types";
+import { Layout } from "../../components";
+
 
 const Users = () => {
   const [users, setUsers] = useState<User[]>();
@@ -15,7 +17,7 @@ const Users = () => {
   }
 
   return (
-    <div>
+    <Layout mainClass="users">
       <table>
         <thead>
           <tr>
@@ -40,8 +42,7 @@ const Users = () => {
           })}
         </tbody>
       </table>
-    </div>
-  );
+      </Layout>  );
 };
 
 export { Users };
