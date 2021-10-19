@@ -1,5 +1,6 @@
 import { FC, FormEvent, useState } from "react";
 import { signup } from "./api";
+import { Layout } from "../../components";
 
 const SignUp: FC = () => {
   const [email, setEmail] = useState<string>("");
@@ -14,7 +15,7 @@ const SignUp: FC = () => {
   };
 
   return (
-    <div>
+    <Layout mainClass="sign-up">
       <form action="" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">Email</label>
@@ -71,8 +72,7 @@ const SignUp: FC = () => {
 
         <button type="submit">Sign Up</button>
       </form>
-    </div>
-  );
+      </Layout>  );
 };
 
 export { SignUp };

@@ -2,7 +2,7 @@ import { FC, FormEvent, useState } from "react";
 import { Form } from "react-bootstrap";
 //import { User } from "../../types";
 import { addtask } from "./api";
-
+import { Layout } from "../../components";
 
 const AddTask: FC = () => {
     
@@ -22,7 +22,7 @@ const AddTask: FC = () => {
       };
 
       return (
-        <div>
+        <Layout mainClass="tasks">
           <Form onSubmit={handleSubmit}>
             <div>
               <label htmlFor="title">Título</label>
@@ -115,7 +115,7 @@ const AddTask: FC = () => {
             </div>
             <button type="submit">Agregar Tarea</button>
           </Form>
-        </div>
+        </Layout>
       );
 
     

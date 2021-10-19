@@ -1,10 +1,7 @@
 import React from 'react';
-import { } from '../src/assets'
-import { } from '../src/components'
-import { } from '../src/hooks'
 import { SignUp, AddTask, Users } from '../src/pages'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-export { api } from './utils'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
