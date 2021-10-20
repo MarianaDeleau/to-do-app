@@ -19,58 +19,29 @@ const Tasks = () => {
       obtenerTareas();
     }
   
-        return (
-      <Layout mainClass="tasks">
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Titulo</th>
-              <th>Descripción</th>
-              <th>Progreso</th>
-              <th>Usuario</th>
-              <th>Fecha Creada</th>
-              <th>Fecha Iniciada</th>
-              <th>Fecha Finalizada</th>
-            </tr>
-          </thead>
-          <tbody>
+      return (
+        <Layout mainClass="tasks">
             {task?.map((item) => {
-              return (
-                <tr>
-                  <td>{item.id}</td>
-                  <td>{item.title}</td>
-                  <td>{item.description}</td>
-                  <td>{item.progress}</td>
-                  <td>{item.user}</td>
-                  <td>{item.creationDate}</td>
-                  <td>{item.startDate}</td>
-                  <td>{item.completionDate}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-        </Layout>  );
+              return(
+                <Card style={{ width: '18rem' }} className="cardTask">
+                    <Card.Body>
+                        <Card.Title>{item.title}</Card.Title>
+                        <Card.Subtitle className="mb-2 text-muted">{item.progress}</Card.Subtitle>
+                        <Card.Subtitle className="mb-2 text">{item.user}</Card.Subtitle>
+                        <Card.Text>
+                           {item.description}
+                        </Card.Text>
+                        <Card.Subtitle className="mb-2 text-muted">{item.creationDate}</Card.Subtitle>
+                        <Card.Subtitle className="mb-2 text-muted">{item.startDate}</Card.Subtitle>
+                        <Card.Subtitle className="mb-2 text-muted">{item.completionDate}</Card.Subtitle>
+                            <Card.Link href="#">Editar Tarea</Card.Link>
+                        </Card.Body>
+                    </Card>
+              )
+        })}
 
-    //     return (
-    //     <Layout mainClass="tasks">
-    //         {task?.map((item) => {
-    //             <Card style={{ width: '18rem' }}>
-    //                 <Card.Body>
-    //                     <Card.Title>{item.title}</Card.Title>
-    //                     <Card.Subtitle className="mb-2 text-muted">{item.progress}</Card.Subtitle>
-    //                     <Card.Subtitle className="mb-2 text-muted">{item.user}</Card.Subtitle>
-    //                     <Card.Text>
-    //                        {item.description}
-    //                     </Card.Text>
-    //                     <Card.Link href="#">Editar Tarea</Card.Link>
-    //                 </Card.Body>
-    //             </Card>
-    //     })}
-
-    // </Layout>
-    //     );
+    </Layout>
+        );
   };
   
 

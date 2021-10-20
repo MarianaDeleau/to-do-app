@@ -22,7 +22,7 @@ const AddTask: FC = () => {
       };
 
       return (
-        <Layout mainClass="tasks">
+        <Layout mainClass="add-tasks">
           <Form onSubmit={handleSubmit}>
             <div>
               <label htmlFor="title">Título</label>
