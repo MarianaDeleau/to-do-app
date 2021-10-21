@@ -13,6 +13,7 @@ type Payload = {
   
 const addtask = async (data: Payload) => {
     await api.post("/tasks.json", data);
+    window.location.href = "/dashboard"
   };
   
   export { addtask };
