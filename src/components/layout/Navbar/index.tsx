@@ -6,7 +6,7 @@ const NavbarApp = () => {
     return (
     <Navbar bg="dark" variant="dark">
         <Container>
-        <Navbar.Brand>TODO APP</Navbar.Brand>
+        <Navbar.Brand className="fs-1 fw-bold">TODO APP</Navbar.Brand>
             <Nav variant="tabs" className="justify-content-center">
                  {menuItems.map((item) => {
                      return (

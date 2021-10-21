@@ -16,6 +16,7 @@ const SignUp: FC = () => {
 
   return (
     <Layout mainClass="sign-up">
+      <h4>Por favor regístrese:</h4>
       <form action="" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">Email</label>

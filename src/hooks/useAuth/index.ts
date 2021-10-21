@@ -22,6 +22,9 @@ const useAuth = () => {
     if (userLogged) {
       setUserSession({ ...userLogged });
     }
+
+    window.location.href = "/dashboard"
+
   };
 
   const logout = () => {};

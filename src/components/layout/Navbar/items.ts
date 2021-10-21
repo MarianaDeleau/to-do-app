@@ -9,7 +9,7 @@ export const menuItems = [
   },
   {
     href: "/sign-up",
-    label: "Registrarse",
+    label: "Sign Up",
   },
     {
       href: "/dashboard",
