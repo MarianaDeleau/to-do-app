@@ -1,8 +1,8 @@
 import React from 'react';
-import { SignUp, AddTask, Users } from '../src/pages'
+import { SignUp, AddTask, Users, EditTask, Tasks } from '../src/pages'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Tasks } from './pages/ShowTasks';
+
 
 
 function App() {
@@ -16,6 +16,7 @@ function App() {
         <Route path="/users" component={Users} />
         <Route path="/profile" component={Users} />
         <Route path="/add-tasks" component={AddTask} />
+        <Route path="/edit-task" component={EditTask} />
         <Route path="/tasks" component={Tasks} />
         <Route path="/" component={SignUp} />
       </Switch>
