@@ -21,9 +21,10 @@ const useAuth = () => {
 
     if (userLogged) {
       setUserSession({ ...userLogged });
+      window.location.href = "/dashboard";
     }
 
-    window.location.href = "/dashboard"
+    
 
   };
 
