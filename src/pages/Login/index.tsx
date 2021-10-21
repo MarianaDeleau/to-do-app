@@ -2,17 +2,18 @@ import { FC, FormEvent, useState } from "react";
 import { Layout } from "../../components";
 import { useAuth } from "../../hooks";
 import { WithAuth } from "../../hoc";
+import { Form } from 'react-bootstrap'
 
 const Login: FC = () => {
     const [email, setEmail] = useState("");
-    const [pass, setPass] = useState("");
+    const [password, setPass] = useState("");
   
     const { login, userSession } = useAuth();
   
     const handleSubmit = async (e: FormEvent) => {
       e.preventDefault();
       try {
-        await login(email, pass);
+        await login(email, password);
       } catch (err) {
         console.log(err);
       }
@@ -28,7 +29,8 @@ const Login: FC = () => {
   
     return (
       <Layout mainClass="login">
-        <form action="" onSubmit={handleSubmit}>
+        <h4>Por favor ingrese su usuario:</h4>
+        <Form action="" onSubmit={handleSubmit}>
           <div>
             <label htmlFor="email">Email</label>
             <input
@@ -46,13 +48,13 @@ const Login: FC = () => {
               id="pass"
               type="password"
               name="pass"
-              value={pass}
+              value={password}
               onChange={(e) => setPass(e.target.value)}
             />
           </div>
   
-          <button type="submit">Inciar sesión</button>
-        </form>
+          <button type="submit">Iniciar sesión</button>
+        </Form>
       </Layout>
     );
   };

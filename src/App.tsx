@@ -1,5 +1,5 @@
 import React from 'react';
-import { SignUp, AddTask, Users, EditTask, Tasks } from '../src/pages'
+import { SignUp, AddTask, Users, EditTask, Tasks, LoginPage } from '../src/pages'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -9,7 +9,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/login" component={SignUp} />
+        <Route path="/login" component={LoginPage} />
         <Route path="/sign-up" component={SignUp} />
         <Route path="/recovery-password" component={SignUp} />
 
@@ -18,7 +18,7 @@ function App() {
         <Route path="/dashboard" component={Tasks} />
         <Route path="/edit-task" component={EditTask} />
         <Route path="/add-tasks" component={AddTask} />
-        <Route path="/" component={SignUp} />
+        <Route path="/" component={LoginPage} />
       </Switch>
     </Router>
   );
