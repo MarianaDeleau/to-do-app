@@ -15,9 +15,9 @@ function App() {
 
         <Route path="/users" component={Users} />
         <Route path="/profile" component={Users} />
-        <Route path="/add-tasks" component={AddTask} />
+        <Route path="/dashboard" component={Tasks} />
         <Route path="/edit-task" component={EditTask} />
-        <Route path="/tasks" component={Tasks} />
+        <Route path="/add-tasks" component={AddTask} />
         <Route path="/" component={SignUp} />
       </Switch>
     </Router>

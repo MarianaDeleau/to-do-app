@@ -1,23 +1,23 @@
 export const menuItems = [
+  {
+    href: "/",
+    label: "Home",
+  },
+  {
+    href: "/login",
+    label: "Login",
+  },
+  {
+    href: "/sign-up",
+    label: "Registrarse",
+  },
     {
-      href: "/",
-      label: "Home",
-    },
-    {
-      href: "/login",
-      label: "Login",
+      href: "/dashboard",
+      label: "Dashboard",
     },
     {
       href: "/add-tasks",
       label: "Agregar Tareas",
-    },
-    {
-      href: "/tasks",
-      label: "Tareas",
-    },
-    {
-      href: "/sign-up",
-      label: "Registrarse",
     },
     {
       href: "/users",
