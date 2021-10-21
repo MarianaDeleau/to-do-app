@@ -33,7 +33,7 @@
     padding: 80px;
     display: flex;
     flex-wrap: wrap;
-   
+    justify-content: center;
 }
 
 .add-tasks{
@@ -73,8 +73,8 @@ footer{
 }
 
 form{
-width:350px ;
-height: 400px;
+width:380px ;
+height: auto;
 display: flex;
 flex-direction: column;
 justify-content: space-evenly;
@@ -84,5 +84,6 @@ justify-content: space-evenly;
 form > div{
     display: flex;
     justify-content: space-between;
+    margin: 5px 0px
 }
 
