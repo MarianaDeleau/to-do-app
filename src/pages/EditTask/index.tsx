@@ -1,28 +1,33 @@
-import { FC, FormEvent, useState } from "react";
-import { Form } from "react-bootstrap";
-//import { User } from "../../types";
-import { addtask } from "./api";
-import { Layout } from "../../components";
+import { FC, FormEvent, useState } from "react"
+import { Form } from "react-bootstrap"
+import { Layout } from "../../components"
+import { getParams } from "../../utils/params"
+import { edittask } from "./api"
 
-const AddTask: FC = () => {
+
+
+const EditTask: FC =  () => {
+
+    const {titleParams, descriptionParams, progressParams, userParams, creationDateParams, startDateParams, completionDateParams } =  getParams()
+ 
+    const [title, setTitle] = useState<string>(`${titleParams}`)
+    const [description, setDescription] = useState<string>(`${descriptionParams}`)
+    const [progress, setProgress] = useState<string>(`${progressParams}`)
+    const [user, setUser] = useState<string>(`${userParams}`)
+    const [creationDate, setCreationDate] = useState<string>(`${creationDateParams}`)
+    const [startDate, setStartDate] = useState<string>(`${startDateParams}`)
+    const [completionDate, setCompletionDate] = useState<string>(`${completionDateParams}`) 
     
-    const [title, setTitle] = useState<string>("")
-    const [description, setDescription] = useState<string>("")
-    const [progress, setProgress] = useState<string>("")
-    const [user, setUser] = useState<string>("")
-    const [creationDate, setCreationDate] = useState<string>("")
-    const [startDate, setStartDate] = useState<string>("")
-    const [completionDate, setCompletionDate] = useState<string>("")
-    
+  
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
     
-      addtask({ title, description, progress, user, creationDate, startDate, completionDate });
+      edittask({ title, description, progress, user, creationDate, startDate, completionDate });
       
       };
 
       return (
-        <Layout mainClass="add-tasks">
+        <Layout mainClass="edit-task">
           <Form onSubmit={handleSubmit}>
             <div>
               <label htmlFor="title">Título</label>
@@ -30,6 +35,7 @@ const AddTask: FC = () => {
                 id="title"
                 type="text"
                 name="title"
+                value={`${title}`}
                 onChange={(e) => {
                   setTitle(e.target.value);
                 }}
@@ -42,6 +48,7 @@ const AddTask: FC = () => {
                 id="description"
                 type="text"
                 name="description"
+                value={`${description}`}
                 onChange={(e) => {
                   setDescription(e.target.value);
                 }}
@@ -53,6 +60,7 @@ const AddTask: FC = () => {
               <select 
                 id="progress"
                 name="progress"
+                value={`${progress}`}
                 onChange={(e) => {
                   setProgress(e.target.value);
                 }}
@@ -72,6 +80,7 @@ const AddTask: FC = () => {
                 id="user"
                 type="text"
                 name="user"
+                value={`${user}`}
                 onChange={(e) => {
                   setUser(e.target.value);
                 }}
@@ -84,6 +93,7 @@ const AddTask: FC = () => {
                 id="creationDate"
                 type="date"
                 name="creationDate"
+                value={`${creationDate}`}
                 onChange={(e) => {
                   setCreationDate(e.target.value);
                 }}
@@ -96,6 +106,7 @@ const AddTask: FC = () => {
                 id="startDate"
                 type="date"
                 name="startDate"
+                value={`${startDate}`}
                 onChange={(e) => {
                   setStartDate(e.target.value);
                 }}
@@ -108,12 +119,13 @@ const AddTask: FC = () => {
                 id="completionDate"
                 type="date"
                 name="completionDate"
+                value={`${completionDate}`}
                 onChange={(e) => {
                   setCompletionDate(e.target.value);
                 }}
               />
             </div>
-            <button type="submit">Agregar Tarea</button>
+            <button type="submit">Editar Tarea</button>
           </Form>
         </Layout>
       );
@@ -121,4 +133,4 @@ const AddTask: FC = () => {
     
 }
 
-export { AddTask };
+export { EditTask };

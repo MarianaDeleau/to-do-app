@@ -20,3 +20,4 @@ const getUsers = async (): Promise<User[]> => {
   };
 
 export { getUsers };
+export { mapToArray }

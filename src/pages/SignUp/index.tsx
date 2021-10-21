@@ -54,6 +54,7 @@ const SignUp: FC = () => {
         </div>
 
         <div>
+        <label htmlFor="name">Género</label>
           <select
             name="gender"
             id="gender"
