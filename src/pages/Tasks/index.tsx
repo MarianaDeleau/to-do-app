@@ -3,21 +3,25 @@ import { Form } from "react-bootstrap";
 //import { User } from "../../types";
 import { addtask } from "./api";
 import { Layout } from "../../components";
+import { useAuth } from "../../hooks";
 
 const AddTask: FC = () => {
     
     const [title, setTitle] = useState<string>("")
     const [description, setDescription] = useState<string>("")
     const [progress, setProgress] = useState<string>("")
-    const [user, setUser] = useState<string>("")
+   // const [user, setUser] = useState<string>("")
     const [creationDate, setCreationDate] = useState<string>("")
     const [startDate, setStartDate] = useState<string>("")
     const [completionDate, setCompletionDate] = useState<string>("")
     
+
+    const {userSession} = useAuth()
+  
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
-    
-      addtask({ title, description, progress, user, creationDate, startDate, completionDate });
+          
+      addtask({ title, description, progress, user: userSession.id, creationDate, startDate, completionDate });
       
       };
 
@@ -67,7 +71,7 @@ const AddTask: FC = () => {
                 </select>
             </div>
     
-            <div>
+            {/* <div>
               <label htmlFor="user">Usuario</label>
               <input
                 id="user"
@@ -77,7 +81,7 @@ const AddTask: FC = () => {
                   setUser(e.target.value);
                 }}
               />
-            </div>
+            </div> */}
     
             <div>
               <label htmlFor="creationDate">Fecha de Creación</label>

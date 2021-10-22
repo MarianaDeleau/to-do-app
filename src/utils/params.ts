@@ -7,8 +7,9 @@ const getParams = () => {
       let creationDateParams = params.get('creationDate');
       let startDateParams = params.get('startDate');
       let completionDateParams = params.get('completionDate');
+      let idParams = params.get('id')
     
-return {titleParams, descriptionParams, progressParams, userParams, creationDateParams, startDateParams, completionDateParams }
+return {titleParams, descriptionParams, progressParams, userParams, creationDateParams, startDateParams, completionDateParams, idParams }
 }
 
 export { getParams }
