@@ -2,6 +2,7 @@ import React from 'react';
 import { SignUp, AddTask, Users, EditTask, Tasks, LoginPage } from '../src/pages'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 
 
 

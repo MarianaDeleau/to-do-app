@@ -3,10 +3,12 @@ import { Task } from "../types";
 import { mapToArray } from "./users"
 
 
-// const getSelectedTasks = (dataid) => {
-//     const response = api.get(`/tasks/${dataid}.json`);
-//     return response;
-//   };
+const getSelectedTasks = async (dataid:string) => {
+    const response = await api.get(`/tasks/${dataid}.json`);
+    return response.data;
+  };
   
-//   export { getSelectedTasks };
+//getSelectedTasks('-Mm_LuhqQPUrqAk2XRpt')
+
+  export { getSelectedTasks };
   

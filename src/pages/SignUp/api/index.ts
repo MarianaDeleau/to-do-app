@@ -9,6 +9,7 @@ type Payload = {
 
 const signup = async (data: Payload) => {
   await api.post("/users.json", data);
+  window.location.href = "/login";
 };
 
 export { signup };

@@ -1,28 +1,41 @@
 import { FC, FormEvent, useState } from "react"
 import { Form } from "react-bootstrap"
 import { Layout } from "../../components"
+import { useAuth } from "../../hooks"
 import { getParams } from "../../utils/params"
 import { edittask } from "./api"
-
-
+import { getSelectedTasks } from '../../api'
+import { Task } from "../../types";
 
 const EditTask: FC =  () => {
 
-    const {titleParams, descriptionParams, progressParams, userParams, creationDateParams, startDateParams, completionDateParams } =  getParams()
- 
-    const [title, setTitle] = useState<string>(`${titleParams}`)
-    const [description, setDescription] = useState<string>(`${descriptionParams}`)
-    const [progress, setProgress] = useState<string>(`${progressParams}`)
-    const [user, setUser] = useState<string>(`${userParams}`)
-    const [creationDate, setCreationDate] = useState<string>(`${creationDateParams}`)
-    const [startDate, setStartDate] = useState<string>(`${startDateParams}`)
-    const [completionDate, setCompletionDate] = useState<string>(`${completionDateParams}`) 
+  const { titleParams, descriptionParams, progressParams, creationDateParams, startDateParams, completionDateParams, idParams } = getParams()
+  
+  
+  const [tarea, setTarea] = useState<Task>()
+  
+  const selectedTask = async () => {
+    const task = await getSelectedTasks(`${idParams}`)
+    setTarea(task);
+  }
+
+  if (!tarea) {
+    selectedTask()
+  }
+   
+    const [title, setTitle] = useState<string>(`${tarea?.title}`)
+    const [description, setDescription] = useState<string>(`${tarea?.description}`)
+    const [progress, setProgress] = useState<string>(`${tarea?.progress}`)
+    const [creationDate, setCreationDate] = useState<string>(`${tarea?.creationDate}`)
+    const [startDate, setStartDate] = useState<string>(`${tarea?.startDate}`)
+    const [completionDate, setCompletionDate] = useState<string>(`${tarea?.completionDate}`) 
     
+    const {userSession} = useAuth()
   
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
     
-      edittask({ title, description, progress, user, creationDate, startDate, completionDate });
+      edittask({ title, description, progress, user: userSession.id, creationDate, startDate, completionDate });
       
       };
 
@@ -74,7 +87,7 @@ const EditTask: FC =  () => {
                 </select>
             </div>
     
-            <div>
+            {/* <div>
               <label htmlFor="user">Usuario</label>
               <input
                 id="user"
@@ -85,7 +98,7 @@ const EditTask: FC =  () => {
                   setUser(e.target.value);
                 }}
               />
-            </div>
+            </div> */}
     
             <div>
               <label htmlFor="creationDate">Fecha de Creación</label>

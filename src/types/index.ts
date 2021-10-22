@@ -11,7 +11,7 @@ export type Task = {
   title: string;
   description: string;
   progress: string;
-  user: User;
+  user: string;
   creationDate: Date;
   startDate: Date;
   completionDate: Date;
