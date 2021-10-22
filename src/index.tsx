@@ -4,6 +4,8 @@ import App from './App';
 import { AddTask, SignUp, Users } from './pages';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css'
+import '../node_modules/font-awesome/css/font-awesome.min.css'; 
+
 
 ReactDOM.render(
   <React.StrictMode>

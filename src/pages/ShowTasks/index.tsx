@@ -37,7 +37,7 @@ const Tasks = () => {
                     <Card.Subtitle className="mb-2 text fs-6 fw-light">Iniciado: {item.startDate}</Card.Subtitle>
                     <Card.Subtitle className="mb-2 text-success fs-6 fw-light">Finalizado: {item.completionDate}</Card.Subtitle>
                     <button>
-                      <Card.Link className="text-decoration-none" href={`./edit-task?id=${item.id}&title=${item.title}&description=${item.description}&progress=${item.progress}&user=${item.user}&creationDate=${item.creationDate}&startDate=${item.startDate}&completionDate=${item.completionDate}`}>Editar Tarea</Card.Link>
+                      <Card.Link className="text-decoration-none" href={`./edit-task?id=${item.id}`}>Editar Tarea</Card.Link>
                     </button>
                   </Card.Body>
                 </Card>
@@ -52,3 +52,4 @@ const Tasks = () => {
 
 export { Tasks }
 
+//&title=${item.title}&description=${item.description}&progress=${item.progress}&user=${item.user}&creationDate=${item.creationDate}&startDate=${item.startDate}&completionDate=${item.completionDate}

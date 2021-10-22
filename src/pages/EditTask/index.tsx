@@ -4,19 +4,31 @@ import { Layout } from "../../components"
 import { useAuth } from "../../hooks"
 import { getParams } from "../../utils/params"
 import { edittask } from "./api"
-
-
+import { getSelectedTasks } from '../../api'
+import { Task } from "../../types";
 
 const EditTask: FC =  () => {
 
-    const {titleParams, descriptionParams, progressParams, creationDateParams, startDateParams, completionDateParams } =  getParams()
- 
-    const [title, setTitle] = useState<string>(`${titleParams}`)
-    const [description, setDescription] = useState<string>(`${descriptionParams}`)
-    const [progress, setProgress] = useState<string>(`${progressParams}`)
-    const [creationDate, setCreationDate] = useState<string>(`${creationDateParams}`)
-    const [startDate, setStartDate] = useState<string>(`${startDateParams}`)
-    const [completionDate, setCompletionDate] = useState<string>(`${completionDateParams}`) 
+  const { titleParams, descriptionParams, progressParams, creationDateParams, startDateParams, completionDateParams, idParams } = getParams()
+  
+  
+  const [tarea, setTarea] = useState<Task>()
+  
+  const selectedTask = async () => {
+    const task = await getSelectedTasks(`${idParams}`)
+    setTarea(task);
+  }
+
+  if (!tarea) {
+    selectedTask()
+  }
+   
+    const [title, setTitle] = useState<string>(`${tarea?.title}`)
+    const [description, setDescription] = useState<string>(`${tarea?.description}`)
+    const [progress, setProgress] = useState<string>(`${tarea?.progress}`)
+    const [creationDate, setCreationDate] = useState<string>(`${tarea?.creationDate}`)
+    const [startDate, setStartDate] = useState<string>(`${tarea?.startDate}`)
+    const [completionDate, setCompletionDate] = useState<string>(`${tarea?.completionDate}`) 
     
     const {userSession} = useAuth()
   
