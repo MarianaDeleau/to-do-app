@@ -22,6 +22,8 @@ const useAuth = () => {
     if (userLogged) {
       setUserSession({ ...userLogged });
       window.location.href = "/dashboard";
+    } else {
+      window.location.href = "/sign-up";
     }
 
     

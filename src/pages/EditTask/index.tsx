@@ -22,15 +22,16 @@ const EditTask: FC =  () => {
   if (!tarea) {
     selectedTask()
   }
-   
+  
     const [title, setTitle] = useState<string>(`${tarea?.title}`)
     const [description, setDescription] = useState<string>(`${tarea?.description}`)
     const [progress, setProgress] = useState<string>(`${tarea?.progress}`)
     const [creationDate, setCreationDate] = useState<string>(`${tarea?.creationDate}`)
     const [startDate, setStartDate] = useState<string>(`${tarea?.startDate}`)
-    const [completionDate, setCompletionDate] = useState<string>(`${tarea?.completionDate}`) 
-    
-    const {userSession} = useAuth()
+    const [completionDate, setCompletionDate] = useState<string>(`${tarea?.completionDate}`)
+  
+ 
+    const { userSession } = useAuth()
   
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
@@ -79,7 +80,8 @@ const EditTask: FC =  () => {
                 }}
                 required
               >
-                <option value="pendiente" selected>Pendiente</option>
+                <option value="" selected>Seleccione Estado</option>
+                <option value="pendiente">Pendiente</option>
                 <option value="enproceso">En Proceso</option>
                 <option value="finalizada">Finalizada</option>
                 <option value="postergada">Postergada</option>

@@ -63,7 +63,8 @@ const AddTask: FC = () => {
                 }}
                 required
               >
-                <option value="pendiente" selected>Pendiente</option>
+                <option value="" selected>Seleccione Estado</option>
+                <option value="pendiente">Pendiente</option>
                 <option value="enproceso">En Proceso</option>
                 <option value="finalizada">Finalizada</option>
                 <option value="postergada">Postergada</option>

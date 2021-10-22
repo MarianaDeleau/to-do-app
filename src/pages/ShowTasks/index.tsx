@@ -28,8 +28,8 @@ const Tasks = () => {
                 <Card style={{ width: '18rem' }} className="cardTask" data-id={item.id}>
                   <Card.Body>
                     <Card.Title className="fw-bold h4">{item.title}</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">Estado: {item.progress}</Card.Subtitle>
-                    <Card.Subtitle className="mb-2 text-danger">Usuario: {item.user}</Card.Subtitle>
+                    <Card.Subtitle className="mb-2 text-danger">Estado: {item.progress}</Card.Subtitle>
+                    <Card.Subtitle className="mb-2 fw-light fs-6">Usuario: {item.user}</Card.Subtitle>
                     <Card.Text className="fw-light fs-6">
                       {item.description}
                     </Card.Text>
