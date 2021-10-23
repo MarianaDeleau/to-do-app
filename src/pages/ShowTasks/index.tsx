@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { getTasks } from "../../api";
 import { Layout } from "../../components";
 import { useAuth } from "../../hooks";
@@ -36,9 +37,7 @@ const Tasks = () => {
                     <Card.Subtitle className="mb-2 text-muted fs-6 fw-light">Creado: {item.creationDate}</Card.Subtitle>
                     <Card.Subtitle className="mb-2 text fs-6 fw-light">Iniciado: {item.startDate}</Card.Subtitle>
                     <Card.Subtitle className="mb-2 text-success fs-6 fw-light">Finalizado: {item.completionDate}</Card.Subtitle>
-                    <button>
-                      <Card.Link className="text-decoration-none" href={`./edit-task?id=${item.id}`}>Editar Tarea</Card.Link>
-                    </button>
+                      <Link className="text-decoration-none" to={`./edit-task?id=${item.id}`}>Editar Tarea</Link>
                   </Card.Body>
                 </Card>
               )
