@@ -12,25 +12,31 @@ const EditTask: FC =  () => {
   const { titleParams, descriptionParams, progressParams, creationDateParams, startDateParams, completionDateParams, idParams } = getParams()
   
   
-  const [tarea, setTarea] = useState<Task>()
+    const [tarea, setTarea] = useState<Task>()
+    const [title, setTitle] = useState<string>('')
+    const [description, setDescription] = useState<string>('')
+    const [progress, setProgress] = useState<string>('')
+    const [creationDate, setCreationDate] = useState<string>('')
+    const [startDate, setStartDate] = useState<string>('')
+    const [completionDate, setCompletionDate] = useState<string>('')
   
   const selectedTask = async () => {
-    const task = await getSelectedTasks(`${idParams}`)
-    setTarea(task);
+    const task: Task = await getSelectedTasks(`${idParams}`)
+    setTarea(task)
+    setDescription(task?.description)
+    setTitle(task?.title)
+    setProgress(task?.progress)
+    setCreationDate(task?.creationDate)
+    setStartDate(task?.startDate)
+    setCompletionDate(task?.completionDate)
   }
 
   if (!tarea) {
     selectedTask()
   }
+
+  console.log(tarea)
   
-    const [title, setTitle] = useState<string>(`${tarea?.title}`)
-    const [description, setDescription] = useState<string>(`${tarea?.description}`)
-    const [progress, setProgress] = useState<string>(`${tarea?.progress}`)
-    const [creationDate, setCreationDate] = useState<string>(`${tarea?.creationDate}`)
-    const [startDate, setStartDate] = useState<string>(`${tarea?.startDate}`)
-    const [completionDate, setCompletionDate] = useState<string>(`${tarea?.completionDate}`)
-  
- 
     const { userSession } = useAuth()
   
     const handleSubmit = (e: FormEvent) => {
