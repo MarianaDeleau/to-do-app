@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Card } from "react-bootstrap";
+import { Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { getTasks } from "../../api";
-import { Layout } from "../../components";
+import { Dashboard2, Layout } from "../../components";
+import { TaskCard } from "../../components/common";
 import { useAuth } from "../../hooks";
 import { Task } from "../../types";
 import { User } from "../../types";
@@ -22,39 +23,83 @@ const Tasks = () => {
   
   task?.sort((a, b) => { return SortTask(a,b)})
   
-
-  console.log(task)
   const { userSession } = useAuth()
-   
-  
+     
       return (
         <Layout mainClass="tasks">
-          {task?.map((item) => {
-            if (userSession.id === item.user) {
-              return (
-                <Card style={{ width: '18rem' }} className="cardTask" data-id={item.id}>
-                  <Card.Body>
-                    <Card.Title className="fw-bold h4">{item.title}</Card.Title>
-                    <Card.Subtitle className="mb-2 text-danger">Estado: {item.progress}</Card.Subtitle>
-                    <Card.Subtitle className="mb-2 fw-light fs-6">Usuario: {item.user}</Card.Subtitle>
-                    <Card.Text className="fw-light fs-6">
-                      {item.description}
-                    </Card.Text>
-                    <Card.Subtitle className="mb-2 text-muted fs-6 fw-light">Creado: {item.creationDate}</Card.Subtitle>
-                    <Card.Subtitle className="mb-2 text fs-6 fw-light">Iniciado: {item.startDate}</Card.Subtitle>
-                    <Card.Subtitle className="mb-2 text-success fs-6 fw-light">Finalizado: {item.completionDate}</Card.Subtitle>
-                      <Link className="text-decoration-none linkButton" to={`./edit-task?id=${item.id}`}>Editar Tarea</Link>
-                  </Card.Body>
-                </Card>
-              )
-            }
-        })}
-      
-    </Layout>
+          <Dashboard2 title='PENDIENTES' >
+            <Col className="d-flex flex-wrap justify-content-md-center">
+              {task?.map((item) => {
+                if (userSession.id === item.user) {
+                  if (item.progress === 'pendiente') {
+                    return (                  
+                      <TaskCard id={item.id} title={item.title.toUpperCase()} description={item.description} progress={item.progress} user={item.user} creationDate={item.creationDate} startDate={item.startDate} completionDate={item.completionDate} >
+                      </TaskCard>                  
+                    )
+                  }
+                }
+              })}               
+          </Col>
+          </Dashboard2>
+          <Dashboard2 title='EN PROCESO' >
+            <Col className="d-flex flex-wrap justify-content-md-center">
+              {task?.map((item) => {
+                if (userSession.id === item.user) {
+                  if (item.progress === 'enproceso') {
+                    return (                  
+                      <TaskCard id={item.id} title={item.title.toUpperCase()} description={item.description} progress={item.progress} user={item.user} creationDate={item.creationDate} startDate={item.startDate} completionDate={item.completionDate} >
+                      </TaskCard>                  
+                    )
+                  }
+                }
+              })}               
+          </Col>
+          </Dashboard2>
+          <Dashboard2 title='FINALIZADAS' >
+            <Col className="d-flex flex-wrap justify-content-md-center">
+              {task?.map((item) => {
+                if (userSession.id === item.user) {
+                  if (item.progress === 'finalizada') {
+                    return (                  
+                      <TaskCard id={item.id} title={item.title.toUpperCase()} description={item.description} progress={item.progress} user={item.user} creationDate={item.creationDate} startDate={item.startDate} completionDate={item.completionDate} >
+                      </TaskCard>                  
+                    )
+                  }
+                }
+              })}               
+          </Col>
+          </Dashboard2>
+          <Dashboard2 title='POSTERGADAS' >
+            <Col className="d-flex flex-wrap justify-content-md-center">
+              {task?.map((item) => {
+                if (userSession.id === item.user) {
+                  if (item.progress === 'postergada') {
+                    return (                  
+                      <TaskCard id={item.id} title={item.title.toUpperCase()} description={item.description} progress={item.progress} user={item.user} creationDate={item.creationDate} startDate={item.startDate} completionDate={item.completionDate} >
+                      </TaskCard>                  
+                    )
+                  }
+                }
+              })}               
+          </Col>
+          </Dashboard2>
+          <Dashboard2 title='CANCELADAS' >
+            <Col className="d-flex flex-wrap justify-content-md-center">
+              {task?.map((item) => {
+                if (userSession.id === item.user) {
+                  if (item.progress === 'cancelada') {
+                    return (                  
+                      <TaskCard id={item.id} title={item.title.toUpperCase()} description={item.description} progress={item.progress} user={item.user} creationDate={item.creationDate} startDate={item.startDate} completionDate={item.completionDate} >
+                      </TaskCard>                  
+                    )
+                  }
+                }
+              })}               
+          </Col>
+          </Dashboard2>
+        </Layout>
         );
   };
   
 
 export { Tasks }
-
-//&title=${item.title}&description=${item.description}&progress=${item.progress}&user=${item.user}&creationDate=${item.creationDate}&startDate=${item.startDate}&completionDate=${item.completionDate}
