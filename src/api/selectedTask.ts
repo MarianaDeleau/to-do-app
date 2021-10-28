@@ -1,6 +1,5 @@
 import { api } from "../utils/axios"
-import { Task } from "../types";
-import { mapToArray } from "./users"
+
 
 
 const getSelectedTasks = async (dataid:string) => {
@@ -8,7 +7,5 @@ const getSelectedTasks = async (dataid:string) => {
     return response.data;
   };
   
-//getSelectedTasks('-Mm_LuhqQPUrqAk2XRpt')
-
   export { getSelectedTasks };
   

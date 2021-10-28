@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { Container } from 'react-bootstrap'
 
 type Props = {
   className?: string;
