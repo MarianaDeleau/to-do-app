@@ -27,11 +27,8 @@ const Users = () => {
                         <Card.Subtitle className="mb-2 text-muted fs-6 fw-normal">Mail:{item.email}</Card.Subtitle>
                         <Card.Subtitle className="mb-2 text-muted fs-6 fw-light">Género: {item.gender}</Card.Subtitle>
                         <Card.Subtitle className="mb-2 text-muted fs-6 fw-light">Password: {'****'}</Card.Subtitle>                    
-                    <button>
-                    <Card.Link className="text-decoration-none" href={`./edit-task?id=${ item.id }&name=${item.name}&email=${item.email}`}>Asignar Tarea</Card.Link>
-                    </button>
-                        </Card.Body>
-                    </Card>
+                    </Card.Body>
+                </Card>
               )
         })}
       </Layout>  );

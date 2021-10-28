@@ -13,6 +13,8 @@ const WithAuth: withAuthenticationFn = (Component) => {
 
     // if (!userSession) {
     //   push("/login");
+    // } else {
+    //   push("/dashboard");
     // }
 
     return isAuthenticated ? <Component /> : null;

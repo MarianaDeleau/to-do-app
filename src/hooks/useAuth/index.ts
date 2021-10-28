@@ -21,9 +21,9 @@ const useAuth = () => {
 
     if (userLogged) {
       setUserSession({ ...userLogged });
-      window.location.href = "/dashboard";
+      //window.location.href = "/dashboard";
     } else {
-      window.location.href = "/sign-up";
+      //window.location.href = "/sign-up";
     }
 
     
@@ -39,25 +39,3 @@ const useAuth = () => {
 
 export { useAuth };
 
-// const useAuth = ()  => {
-
-//     const [isLogged, setIsLogged] = useState(false)
-
-//     const login = (email: string, password: string) => {
-//         console.log(`Intento de login de ${email} con el pass ${password}`);
-//         setIsLogged(true);
-//     }
-
-//     const logout = () => {
-//         console.log('Cerrar sesión');
-//         setIsLogged(false);
-//     }
-
-//     const resetPassword = () => {
-//         console.log('Reset password');
-
-//     }
-
-
-//     return { isLogged, login, logout, resetPassword }
-// }
