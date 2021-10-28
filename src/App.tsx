@@ -6,6 +6,7 @@ import '../node_modules/font-awesome/css/font-awesome.min.css';
 
 
 
+
 function App() {
   return (
     <Router>
@@ -14,6 +15,7 @@ function App() {
         <Route path="/sign-up" component={SignUp} />
         <Route path="/recovery-password" component={SignUp} />
 
+        
         <Route path="/users" component={Users} />
         <Route path="/profile" component={Users} />
         <Route path="/dashboard" component={Tasks} />
