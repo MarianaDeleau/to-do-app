@@ -2,7 +2,7 @@ import { FC, FormEvent, useState } from "react"
 import { Form } from "react-bootstrap"
 import { Layout } from "../../components"
 import { useAuth } from "../../hooks"
-import { getParams } from "../../utils/params"
+import { getParams } from "../../helpers/params"
 import { edittask } from "./api"
 import { getSelectedTasks } from '../../api'
 import { Task } from "../../types";

@@ -21,7 +21,7 @@ const TaskCard: FC<Props> = ({ id, title, description, progress, user, creationD
     return (
     <Card style={{ width: '18rem' }} className="cardTask shadow-lg p-3 mb-5 bg-body rounded" data-id={id} data-progress={progress}>
         <Card.Body>
-            <Card.Title className="fw-bold h4">{title}</Card.Title>
+            <Card.Title className="fw-bold h4">📌{title}</Card.Title>
             <Card.Subtitle className="mb-2 text-danger">Estado: {progress}</Card.Subtitle>
             <Card.Subtitle className="mb-2 fw-light fs-6">Usuario: {userSession.name}</Card.Subtitle>
             <Card.Text className="fw-light fs-6">
