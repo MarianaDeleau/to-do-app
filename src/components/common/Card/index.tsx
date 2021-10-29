@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../../hooks";
 import { Task } from "../../../types";
 
 type Props = {
@@ -15,12 +16,14 @@ type Props = {
 }
 
 const TaskCard: FC<Props> = ({ id, title, description, progress, user, creationDate, startDate, completionDate }) => {
+    const { userSession }= useAuth()
+
     return (
-    <Card style={{ width: '18rem' }} className="cardTask" data-id={id} data-progress={progress}>
+    <Card style={{ width: '18rem' }} className="cardTask shadow-lg p-3 mb-5 bg-body rounded" data-id={id} data-progress={progress}>
         <Card.Body>
             <Card.Title className="fw-bold h4">{title}</Card.Title>
             <Card.Subtitle className="mb-2 text-danger">Estado: {progress}</Card.Subtitle>
-            <Card.Subtitle className="mb-2 fw-light fs-6">Usuario: {user}</Card.Subtitle>
+            <Card.Subtitle className="mb-2 fw-light fs-6">Usuario: {userSession.name}</Card.Subtitle>
             <Card.Text className="fw-light fs-6">
                 {description}
             </Card.Text>
