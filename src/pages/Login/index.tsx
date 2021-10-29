@@ -3,20 +3,19 @@ import { Layout } from "../../components";
 import { useAuth } from "../../hooks";
 import { WithAuth } from "../../hoc";
 import { Form } from 'react-bootstrap'
-import { useHistory } from "react-router";
+
 
 const Login: FC = () => {
     const [email, setEmail] = useState("");
     const [password, setPass] = useState("");
   
   const { login, userSession } = useAuth();
-  const { push } = useHistory();
-  
+    
     const handleSubmit = async (e: FormEvent) => {
       e.preventDefault();
       try {
         await login(email, password);
-        push("/dashboard");
+        
       } catch (err) {
         console.log(err);
       }

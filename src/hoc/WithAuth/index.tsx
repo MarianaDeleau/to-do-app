@@ -11,11 +11,11 @@ const WithAuth: withAuthenticationFn = (Component) => {
     const { push } = useHistory();
     const { userSession } = useAuth();
 
-    // if (!userSession) {
-    //   push("/login");
-    // } else {
-    //   push("/dashboard");
-    // }
+    if (!userSession) {
+      push("/login");
+    } else {
+      push("/dashboard");
+    }
 
     return isAuthenticated ? <Component /> : null;
   };

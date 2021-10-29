@@ -20,22 +20,26 @@ const useAuth = () => {
     console.log(userLogged);
 
     if (userLogged) {
-      setUserSession({ ...userLogged });
-      //window.location.href = "/dashboard";
+      setUserSession({ ...userLogged });     
     } else {
-      //window.location.href = "/sign-up";
-    }
 
-    
+    }   
 
   };
 
-  const logout = () => {};
+  const logout = () => {
+
+   console.log('logout')
+    // if (userSession) {
+    //   localStorage.removeItem("user")
+   // }
+  };
 
   const recoveryPassword = () => {};
 
-  return { login, userSession };
+  return { login, userSession, logout };
 };
 
 export { useAuth };
 
+//{"id":"-MlVIxa4Xgt_iT8cL9fG","email":"marianadeleau@gmail.com","gender":"mujer","name":"Mariana Deleau","password":"1234"}
