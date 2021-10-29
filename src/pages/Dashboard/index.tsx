@@ -27,7 +27,7 @@ const Tasks = () => {
      
       return (
         <Layout mainClass="tasks">
-          <Dashboard2 title='PENDIENTES' >
+          <Dashboard2 title='📌PENDIENTES📌' >
             <Col className="d-flex flex-wrap justify-content-md-center">
               {task?.map((item) => {
                 if (userSession.id === item.user) {
@@ -41,7 +41,7 @@ const Tasks = () => {
               })}               
           </Col>
           </Dashboard2>
-          <Dashboard2 title='EN PROCESO' >
+          <Dashboard2 title='📌EN PROCESO📌' >
             <Col className="d-flex flex-wrap justify-content-md-center">
               {task?.map((item) => {
                 if (userSession.id === item.user) {
@@ -55,7 +55,7 @@ const Tasks = () => {
               })}               
           </Col>
           </Dashboard2>
-          <Dashboard2 title='FINALIZADAS' >
+          <Dashboard2 title='📌FINALIZADAS📌' >
             <Col className="d-flex flex-wrap justify-content-md-center">
               {task?.map((item) => {
                 if (userSession.id === item.user) {
@@ -69,7 +69,7 @@ const Tasks = () => {
               })}               
           </Col>
           </Dashboard2>
-          <Dashboard2 title='POSTERGADAS' >
+          <Dashboard2 title='📌POSTERGADAS📌' >
             <Col className="d-flex flex-wrap justify-content-md-center">
               {task?.map((item) => {
                 if (userSession.id === item.user) {
@@ -83,7 +83,7 @@ const Tasks = () => {
               })}               
           </Col>
           </Dashboard2>
-          <Dashboard2 title='CANCELADAS' >
+          <Dashboard2 title='📌CANCELADAS📌' >
             <Col className="d-flex flex-wrap justify-content-md-center">
               {task?.map((item) => {
                 if (userSession.id === item.user) {

@@ -104,6 +104,8 @@ button{
     margin: 20px;
     border-radius: 10px;    
     padding: 13px !important;
+    filter: drop-shadow(2px 2px 1px #000);
+    transition: 0.5s;
 }
 
 .card-body{
@@ -121,5 +123,8 @@ padding: 0 !important
 }
 
 
-
+.cardTask:hover{
+   transform: scale(1.15);
+   transition: 0.5s;
+}
 

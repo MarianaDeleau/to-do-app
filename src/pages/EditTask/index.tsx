@@ -6,12 +6,13 @@ import { getParams } from "../../utils/params"
 import { edittask } from "./api"
 import { getSelectedTasks } from '../../api'
 import { Task } from "../../types";
+import { useHistory } from "react-router"
 
 const EditTask: FC =  () => {
 
-  const { titleParams, descriptionParams, progressParams, creationDateParams, startDateParams, completionDateParams, idParams } = getParams()
+  const { idParams } = getParams()
   
-  
+    const { push } = useHistory();
     const [tarea, setTarea] = useState<Task>()
     const [title, setTitle] = useState<string>('')
     const [description, setDescription] = useState<string>('')
@@ -43,7 +44,7 @@ const EditTask: FC =  () => {
         e.preventDefault();
     
       edittask({ title, description, progress, user: userSession.id, creationDate, startDate, completionDate });
-      
+      push("/dashboard");
       };
 
       return (
@@ -94,20 +95,7 @@ const EditTask: FC =  () => {
                 <option value="cancelada">Cancelada</option>
                 </select>
             </div>
-    
-            {/* <div>
-              <label htmlFor="user">Usuario</label>
-              <input
-                id="user"
-                type="text"
-                name="user"
-                value={`${user}`}
-                onChange={(e) => {
-                  setUser(e.target.value);
-                }}
-              />
-            </div> */}
-    
+
             <div>
               <label htmlFor="creationDate">Fecha de Creación</label>
               <input
