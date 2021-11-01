@@ -5,23 +5,25 @@ import { addtask } from "./api";
 import { Layout } from "../../components";
 import { useAuth } from "../../hooks";
 
+const defaultValues = {
+  title: "",
+  description: "",
+  progress: "",
+  creationDate: "",
+  startDate: "",
+  completionDate:"",
+}
+
 const AddTask: FC = () => {
     
-    const [title, setTitle] = useState<string>("")
-    const [description, setDescription] = useState<string>("")
-    const [progress, setProgress] = useState<string>("")
-   // const [user, setUser] = useState<string>("")
-    const [creationDate, setCreationDate] = useState<string>("")
-    const [startDate, setStartDate] = useState<string>("")
-    const [completionDate, setCompletionDate] = useState<string>("")
-    
+  const [inputs, setInputs] = useState(defaultValues);
 
     const {userSession} = useAuth()
   
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
           
-      addtask({ title, description, progress, user: userSession.id, creationDate, startDate, completionDate });
+      addtask({ ...inputs, user: userSession.id });
       
       };
 
@@ -35,8 +37,9 @@ const AddTask: FC = () => {
                 id="title"
                 type="text"
                 name="title"
+                value={inputs.title}
                 onChange={(e) => {
-                  setTitle(e.target.value);
+                  setInputs({ ...inputs, title: e.target.value });
                 }}
               />
             </div>
@@ -47,8 +50,9 @@ const AddTask: FC = () => {
                 id="description"
                 type="text"
                 name="description"
+                value={inputs.description}
                 onChange={(e) => {
-                  setDescription(e.target.value);
+                  setInputs({ ...inputs, description: e.target.value });
                 }}
               />
             </div>
@@ -58,8 +62,9 @@ const AddTask: FC = () => {
               <select 
                 id="progress"
                 name="progress"
+                value={inputs.progress}
                 onChange={(e) => {
-                  setProgress(e.target.value);
+                  setInputs({ ...inputs, progress: e.target.value });
                 }}
                 required
               >
@@ -71,27 +76,15 @@ const AddTask: FC = () => {
                 <option value="cancelada">Cancelada</option>
                 </select>
             </div>
-    
-            {/* <div>
-              <label htmlFor="user">Usuario</label>
-              <input
-                id="user"
-                type="text"
-                name="user"
-                onChange={(e) => {
-                  setUser(e.target.value);
-                }}
-              />
-            </div> */}
-    
             <div>
               <label htmlFor="creationDate">Fecha de Creación</label>
               <input
                 id="creationDate"
                 type="date"
                 name="creationDate"
+                value={inputs.creationDate}
                 onChange={(e) => {
-                  setCreationDate(e.target.value);
+                  setInputs({ ...inputs, creationDate: e.target.value });
                 }}
               />
             </div>
@@ -102,8 +95,9 @@ const AddTask: FC = () => {
                 id="startDate"
                 type="date"
                 name="startDate"
+                value={inputs.startDate}
                 onChange={(e) => {
-                  setStartDate(e.target.value);
+                  setInputs({ ...inputs, startDate: e.target.value });
                 }}
               />
             </div>
@@ -114,8 +108,9 @@ const AddTask: FC = () => {
                 id="completionDate"
                 type="date"
                 name="completionDate"
+                value={inputs.completionDate}
                 onChange={(e) => {
-                  setCompletionDate(e.target.value);
+                  setInputs({ ...inputs, completionDate: e.target.value });
                 }}
               />
             </div>

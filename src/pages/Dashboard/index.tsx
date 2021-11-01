@@ -1,13 +1,11 @@
 import { useState } from "react";
-import { Card, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Col } from "react-bootstrap";
 import { getTasks } from "../../api";
-import { Dashboard2, Layout } from "../../components";
+import { Layout, TaskWrapper } from "../../components";
 import { TaskCard } from "../../components/common";
 import { useAuth } from "../../hooks";
 import { Task } from "../../types";
-import { User } from "../../types";
-import { SortTask } from "../../helpers/sort"
+
 
 const Tasks = () => {
     const [task, setTask] = useState<Task[]>();
@@ -27,11 +25,11 @@ const Tasks = () => {
      
       return (
         <Layout mainClass="tasks">
-          <Dashboard2 title='PENDIENTES' >
+          <TaskWrapper title='PENDIENTES' >
             <Col className="d-flex flex-wrap justify-content-md-center">
               {task?.map((item) => {
-                if (userSession.id === item.user) {
-                  if (item.progress === 'pendiente') {
+              if (userSession.id === item.user) {
+                if (item.progress === 'pendiente') {
                     return (                  
                       <TaskCard id={item.id} title={item.title.toUpperCase()} description={item.description} progress={item.progress} user={item.user} creationDate={item.creationDate} startDate={item.startDate} completionDate={item.completionDate} >
                       </TaskCard>                  
@@ -40,8 +38,8 @@ const Tasks = () => {
                 }
               })}               
           </Col>
-          </Dashboard2>
-          <Dashboard2 title='EN PROCESO' >
+          </TaskWrapper>
+          <TaskWrapper title='EN PROCESO' >
             <Col className="d-flex flex-wrap justify-content-md-center">
               {task?.map((item) => {
                 if (userSession.id === item.user) {
@@ -54,8 +52,8 @@ const Tasks = () => {
                 }
               })}               
           </Col>
-          </Dashboard2>
-          <Dashboard2 title='FINALIZADAS' >
+          </TaskWrapper>
+          <TaskWrapper title='FINALIZADAS' >
             <Col className="d-flex flex-wrap justify-content-md-center">
               {task?.map((item) => {
                 if (userSession.id === item.user) {
@@ -68,8 +66,8 @@ const Tasks = () => {
                 }
               })}               
           </Col>
-          </Dashboard2>
-          <Dashboard2 title='POSTERGADAS' >
+          </TaskWrapper>
+          <TaskWrapper title='POSTERGADAS' >
             <Col className="d-flex flex-wrap justify-content-md-center">
               {task?.map((item) => {
                 if (userSession.id === item.user) {
@@ -82,8 +80,8 @@ const Tasks = () => {
                 }
               })}               
           </Col>
-          </Dashboard2>
-          <Dashboard2 title='CANCELADAS' >
+          </TaskWrapper>
+          <TaskWrapper title='CANCELADAS' >
             <Col className="d-flex flex-wrap justify-content-md-center">
               {task?.map((item) => {
                 if (userSession.id === item.user) {
@@ -96,7 +94,7 @@ const Tasks = () => {
                 }
               })}               
           </Col>
-          </Dashboard2>
+          </TaskWrapper>
         </Layout>
         );
   };
