@@ -1,13 +1,11 @@
 import { FC } from "react";
-import { Col, Container, Row } from "react-bootstrap";
-import { Layout } from "..";
-import { TaskCard } from "../../common/Card";
-import { Main } from "../Main";
+import { Container, Row } from "react-bootstrap";
+
 
 type Props = {
     title?: string; 
 }
-const Dashboard2: FC<Props> = ({ title, children }) => {
+const TaskWrapper: FC<Props> = ({ title, children }) => {
     return (
         <Container className="mt-2 mb-2">
             <Row className="d-flex justify-content-md-center border">
@@ -18,4 +16,4 @@ const Dashboard2: FC<Props> = ({ title, children }) => {
     )
 }
 
-export { Dashboard2 }
+export { TaskWrapper }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getUsers } from "../../api";
 import { User } from "../../types";
 import { Layout } from "../../components";
@@ -8,15 +8,13 @@ import { Card } from "react-bootstrap";
 const Users = () => {
   const [users, setUsers] = useState<User[]>();
 
-  const obtenerUsuarios = async () => {
-    const response = await getUsers();
-    setUsers(response);
-  };
+  useEffect(() => {
+    getUsers().then((response) => {
+      setUsers(response);
+    });
+  }, []);
 
-  if (!users) {
-    obtenerUsuarios();
-  }
-
+ 
   return (
     <Layout mainClass="users">
        {users?.map((item) => {
