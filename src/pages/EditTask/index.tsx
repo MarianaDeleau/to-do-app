@@ -1,49 +1,42 @@
-import { FC, FormEvent, useState } from "react"
+import { FC, FormEvent, useEffect, useState } from "react"
 import { Form } from "react-bootstrap"
 import { Layout } from "../../components"
 import { useAuth } from "../../hooks"
 import { getParams } from "../../helpers/params"
 import { edittask } from "./api"
 import { getSelectedTasks } from '../../api'
-import { Task } from "../../types";
 import { useHistory } from "react-router"
+
+const defaultValues = {
+  title: '',
+  description: '',
+  progress: '',
+  user: '',
+  creationDate: '',
+  startDate: '',
+  completionDate: '',
+}
 
 const EditTask: FC =  () => {
 
   const { idParams } = getParams()
   
     const { push } = useHistory();
-    const [tarea, setTarea] = useState<Task>()
-    const [title, setTitle] = useState<string>('')
-    const [description, setDescription] = useState<string>('')
-    const [progress, setProgress] = useState<string>('')
-    const [creationDate, setCreationDate] = useState<string>('')
-    const [startDate, setStartDate] = useState<string>('')
-    const [completionDate, setCompletionDate] = useState<string>('')
-  
-  const selectedTask = async () => {
-    const task: Task = await getSelectedTasks(`${idParams}`)
-    setTarea(task)
-    setDescription(task?.description)
-    setTitle(task?.title)
-    setProgress(task?.progress)
-    setCreationDate(task?.creationDate)
-    setStartDate(task?.startDate)
-    setCompletionDate(task?.completionDate)
-  }
-
-  if (!tarea) {
-    selectedTask()
-  }
-
-  console.log(tarea)
+    const [tarea, setTarea] = useState(defaultValues)
+   
+    useEffect(() => {
+      getSelectedTasks(`${idParams}`).then((response) => {
+        setTarea(response);
+     
+    });
+  }, []);
   
     const { userSession } = useAuth()
   
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
     
-      edittask({ title, description, progress, user: userSession.id, creationDate, startDate, completionDate });
+      edittask({ ...tarea, user: userSession.id});
       push("/dashboard");
       };
 
@@ -56,22 +49,21 @@ const EditTask: FC =  () => {
                 id="title"
                 type="text"
                 name="title"
-                value={`${title}`}
+                value={tarea?.title}
                 onChange={(e) => {
-                  setTitle(e.target.value);
+                  setTarea({...tarea, title: e.target.value})
                 }}
               />
-            </div>
-    
+            </div>    
             <div>
               <label htmlFor="description">Descripción</label>
               <input
                 id="description"
                 type="text"
                 name="description"
-                value={`${description}`}
+                value={tarea?.description}
                 onChange={(e) => {
-                  setDescription(e.target.value);
+                  setTarea({...tarea, description: e.target.value})
                 }}
               />
             </div>
@@ -81,9 +73,9 @@ const EditTask: FC =  () => {
               <select 
                 id="progress"
                 name="progress"
-                value={`${progress}`}
+                value={tarea?.progress}
                 onChange={(e) => {
-                  setProgress(e.target.value);
+                  setTarea({...tarea, progress: e.target.value})
                 }}
                 required
               >
@@ -102,9 +94,9 @@ const EditTask: FC =  () => {
                 id="creationDate"
                 type="date"
                 name="creationDate"
-                value={`${creationDate}`}
+                value={tarea?.creationDate}
                 onChange={(e) => {
-                  setCreationDate(e.target.value);
+                  setTarea({...tarea, creationDate: e.target.value})
                 }}
               />
             </div>
@@ -115,9 +107,9 @@ const EditTask: FC =  () => {
                 id="startDate"
                 type="date"
                 name="startDate"
-                value={`${startDate}`}
+                value={tarea?.startDate}
                 onChange={(e) => {
-                  setStartDate(e.target.value);
+                  setTarea({...tarea, startDate: e.target.value})
                 }}
               />
             </div>
@@ -128,9 +120,9 @@ const EditTask: FC =  () => {
                 id="completionDate"
                 type="date"
                 name="completionDate"
-                value={`${completionDate}`}
+                value={tarea?.completionDate}
                 onChange={(e) => {
-                  setCompletionDate(e.target.value);
+                  setTarea({...tarea, completionDate: e.target.value})
                 }}
               />
             </div>
@@ -141,5 +133,7 @@ const EditTask: FC =  () => {
 
     
 }
+
+
 
 export { EditTask };
