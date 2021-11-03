@@ -2,7 +2,6 @@ import { Nav, Container, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { menuItems } from "./items";
 import { useAuth } from "../../../hooks/useAuth"
-import { WithAuth } from "../../../hoc";
 import { Button } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPowerOff } from '@fortawesome/free-solid-svg-icons'

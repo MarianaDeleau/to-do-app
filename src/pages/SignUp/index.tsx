@@ -1,17 +1,19 @@
 import { FC, FormEvent, useState } from "react";
 import { signup } from "./api";
 import { Layout } from "../../components";
+import { useHistory } from "react-router";
 
 const SignUp: FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [gender, setGender] = useState<string>("");
+  const { push } = useHistory();
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-
     signup({ email, password, name, gender });
+    push("/login");
   };
 
   return (

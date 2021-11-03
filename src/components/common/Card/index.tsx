@@ -19,7 +19,7 @@ const TaskCard: FC<Props> = ({ id, title, description, progress, user, creationD
     const { userSession }= useAuth()
 
     return (
-    <Card style={{ width: '18rem' }} className="cardTask shadow-lg p-3 mb-5 bg-body rounded" data-id={id} data-progress={progress}>
+    <Card style={{ width: '15rem' }} className="cardTask shadow-lg p-3 mb-5 bg-body rounded" data-id={id} data-progress={progress}>
         <Card.Body>
             <Card.Title className="fw-bold h4">📌{title}</Card.Title>
             <Card.Subtitle className="mb-2 text-danger">Estado: {progress}</Card.Subtitle>
