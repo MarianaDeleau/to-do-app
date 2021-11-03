@@ -36,6 +36,7 @@ const Tasks = () => {
                     )
                   }
                 }
+                return ''
               })}               
           </Col>
           </TaskWrapper>
@@ -50,6 +51,7 @@ const Tasks = () => {
                     )
                   }
                 }
+                return ''
               })}               
           </Col>
           </TaskWrapper>
@@ -64,6 +66,7 @@ const Tasks = () => {
                     )
                   }
                 }
+                return ''
               })}               
           </Col>
           </TaskWrapper>
@@ -78,6 +81,7 @@ const Tasks = () => {
                     )
                   }
                 }
+                return ''
               })}               
           </Col>
           </TaskWrapper>
@@ -92,6 +96,7 @@ const Tasks = () => {
                     )
                   }
                 }
+                return ''
               })}               
           </Col>
           </TaskWrapper>

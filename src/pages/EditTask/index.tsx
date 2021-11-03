@@ -25,11 +25,11 @@ const EditTask: FC =  () => {
     const [tarea, setTarea] = useState(defaultValues)
    
     useEffect(() => {
-      getSelectedTasks(`${idParams}`).then((response) => {
+      idParams && getSelectedTasks(idParams).then((response) => {
         setTarea(response);
      
     });
-  }, []);
+  }, [idParams]);
   
     const { userSession } = useAuth()
   
@@ -98,6 +98,7 @@ const EditTask: FC =  () => {
                 onChange={(e) => {
                   setTarea({...tarea, creationDate: e.target.value})
                 }}
+                required
               />
             </div>
 
