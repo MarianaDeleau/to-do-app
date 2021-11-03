@@ -17,3 +17,8 @@ export type Task = {
   completionDate: string;
   };
   
+export type Category = {
+  id: string,
+  category: string,
+  user: string,
+}

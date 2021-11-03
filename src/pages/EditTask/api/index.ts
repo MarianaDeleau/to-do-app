@@ -15,6 +15,6 @@ const edittask = async (data: Payload) => {
     const param = new URLSearchParams(window.location.search);
     const id = await param.get('id')
     await api.patch(`/tasks/${id}.json`, data);
-    //window.location.href = "/dashboard"
+
 }
   export { edittask };

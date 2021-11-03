@@ -3,6 +3,7 @@ import { SignUp, AddTask, Users, EditTask, Tasks, LoginPage } from '../src/pages
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css'; 
+import { Categories } from './pages/Categories';
 
 
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/dashboard" component={Tasks} />
         <Route path="/edit-task" component={EditTask} />
         <Route path="/add-tasks" component={AddTask} />
+        <Route path="/categories" component={Categories} />
         <Route path="/" component={LoginPage} />
       </Switch>
     </Router>

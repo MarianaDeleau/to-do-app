@@ -18,7 +18,11 @@ export const menuItems = [
     {
       href: "/add-tasks",
       label: "Agregar Tareas",
-    },
+  },
+  {
+    href: "/categories",
+    label: "Categorías",
+  },
     {
       href: "/users",
       label: "Usuarios",
