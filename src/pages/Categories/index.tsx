@@ -1,8 +1,10 @@
-import { FC, FormEvent, useState } from 'react'
-import { Form } from 'react-bootstrap';
+import { FC, FormEvent, useEffect, useState } from 'react'
+import { Card, Form } from 'react-bootstrap';
 import { Layout } from '../../components';
+import { CategoryWrapper } from '../../components/parts';
 import { useAuth } from '../../hooks';
-import { createCategory } from './api'
+import { Category } from '../../types';
+import { createCategory, getCategories } from './api'
 
 
 const defaultValues = {
@@ -13,7 +15,8 @@ const defaultValues = {
 const Categories: FC = () => {
     
     const [category, setCategory] = useState(defaultValues);
-    
+  const [categoryCard, setCategoryCard] = useState<Category[]>()
+  
     const { userSession } = useAuth()
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
@@ -21,6 +24,12 @@ const Categories: FC = () => {
         createCategory({ ...category, user: userSession.id })
       };
 
+      useEffect(() => {
+        getCategories().then((response) => {
+          setCategoryCard(response);
+        });
+      },);
+    
 
     return (
         <>
@@ -39,8 +48,20 @@ const Categories: FC = () => {
           </div>          
           <button type="submit">Crear categoría</button>
         </Form>
-            </Layout>
             
+                <CategoryWrapper>
+            {categoryCard?.map((item) => {
+            return(
+                <Card style={{ width: '15rem' }} className="cardTask shadow-lg p-3 mb-5 bg-body rounded" data-id={item.id}>
+                    <Card.Body>
+                        <Card.Title className="fw-bold h4">{item.category}</Card.Title>
+                        <Card.Subtitle className="mb-2 text-muted fs-6 fw-normal">Usuario:{userSession.name}</Card.Subtitle>
+                    </Card.Body>
+                  </Card>
+              )              
+            })}
+              </CategoryWrapper>
+        </Layout>
         </>
     )
 
