@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../hooks";
+import { LoginPage } from "../../pages";
 
 const isAuthenticated = true;
 
@@ -13,9 +14,10 @@ const WithAuth: withAuthenticationFn = (Component) => {
 
     if (!userSession) {
       push("/login");
-    } else {
-      push("/dashboard");
     }
+    // else {
+    //   push("/dashboard");
+    // }
 
     return isAuthenticated ? <Component /> : null;
   };

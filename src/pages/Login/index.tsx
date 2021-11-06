@@ -1,4 +1,4 @@
-import { FC, FormEvent, useState } from "react";
+import { FC, FormEvent, useEffect, useState } from "react";
 import { Layout } from "../../components";
 import { useAuth } from "../../hooks";
 import { WithAuth } from "../../hoc";
@@ -21,13 +21,13 @@ const Login: FC = () => {
       }
     };
   
-    // useEffect(() => {
-    //   localStorage.setItem("user", JSON.stringify(userSession));
-    // }, [userSession]);
-  
-    if (userSession) {
+    useEffect(() => {
       localStorage.setItem("user", JSON.stringify(userSession));
-    }
+    }, [userSession]);
+  
+    // if (userSession) {
+    //   localStorage.setItem("user", JSON.stringify(userSession));
+    // }
   
     return (
       <Layout mainClass="login">

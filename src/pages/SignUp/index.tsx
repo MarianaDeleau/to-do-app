@@ -2,6 +2,7 @@ import { FC, FormEvent, useState } from "react";
 import { signup } from "./api";
 import { Layout } from "../../components";
 import { useHistory } from "react-router";
+import { WithAuth } from "../../hoc";
 
 const SignUp: FC = () => {
   const [email, setEmail] = useState<string>("");
@@ -79,4 +80,4 @@ const SignUp: FC = () => {
       </Layout>  );
 };
 
-export { SignUp };
+export const SignUpPage = WithAuth(SignUp)

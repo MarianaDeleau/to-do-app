@@ -30,9 +30,9 @@ const useAuth = () => {
   const logout = () => {
 
    console.log('logout')
-    // if (userSession) {
-    //   localStorage.removeItem("user")
-   // }
+    if (userSession) {
+      localStorage.removeItem("user")
+   }
   };
 
   const recoveryPassword = () => {};

@@ -2,6 +2,7 @@ import { FC, FormEvent, useEffect, useState } from 'react'
 import { Card, Form } from 'react-bootstrap';
 import { Layout } from '../../components';
 import { CategoryWrapper } from '../../components/parts';
+import { WithAuth } from '../../hoc';
 import { useAuth } from '../../hooks';
 import { Category } from '../../types';
 import { createCategory, getCategories } from './api'
@@ -51,14 +52,17 @@ const Categories: FC = () => {
             
                 <CategoryWrapper>
             {categoryCard?.map((item) => {
-            return(
-                <Card style={{ width: '15rem' }} className="cardTask shadow-lg p-3 mb-5 bg-body rounded" data-id={item.id}>
+              if (userSession.id === item.user) {
+                return (
+                  <Card style={{ width: '15rem' }} className="cardTask shadow-lg p-3 mb-5 bg-body rounded" data-id={item.id}>
                     <Card.Body>
-                        <Card.Title className="fw-bold h4">{item.category}</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted fs-6 fw-normal">Usuario:{userSession.name}</Card.Subtitle>
+                      <Card.Title className="fw-bold h4">{item.category}</Card.Title>
+                      <Card.Subtitle className="mb-2 text-muted fs-6 fw-normal">Usuario:{userSession.name}</Card.Subtitle>
                     </Card.Body>
                   </Card>
-              )              
+                )
+              }
+              return ''
             })}
               </CategoryWrapper>
         </Layout>
@@ -67,4 +71,4 @@ const Categories: FC = () => {
 
 }
 
-export {Categories}
+export const CategoriesPage = WithAuth(Categories);

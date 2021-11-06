@@ -1,6 +1,7 @@
 export { Users } from "./Users";
-export { SignUp } from "./SignUp";
+export { SignUpPage } from "./SignUp";
 export { AddTask } from "./Tasks"
-export { EditTask } from "./EditTask"
+export { EditTaskPage } from "./EditTask"
 export { Tasks } from "./Dashboard"
 export { LoginPage } from "./Login"
+export { CategoriesPage } from "./Categories"

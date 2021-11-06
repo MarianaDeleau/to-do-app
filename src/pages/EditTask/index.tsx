@@ -6,6 +6,7 @@ import { getParams } from "../../helpers/params"
 import { edittask } from "./api"
 import { getSelectedTasks } from '../../api'
 import { useHistory } from "react-router"
+import { WithAuth } from "../../hoc"
 
 const defaultValues = {
   title: '',
@@ -137,4 +138,4 @@ const EditTask: FC =  () => {
 
 
 
-export { EditTask };
+export const EditTaskPage = WithAuth(EditTask);
