@@ -1,19 +1,21 @@
 import { FC } from "react";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../hooks";
+import { LoginPage } from "../../pages";
 
 const isAuthenticated = true;
+const publicRoutes = ["/login", "/sign-up"]
 
 type withAuthenticationFn = (Component: FC) => FC;
 
 const WithAuth: withAuthenticationFn = (Component) => {
   const Authenticated: FC = (): JSX.Element | null => {
-    const { push } = useHistory();
+    const { push, location } = useHistory();
     const { userSession } = useAuth();
 
-    if (!userSession) {
+    if (!userSession && !publicRoutes.includes(location.pathname)) {
       push("/login");
-    } else {
+    } else if (userSession && publicRoutes.includes(location.pathname)){
       push("/dashboard");
     }
 
