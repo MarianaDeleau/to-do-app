@@ -1,5 +1,5 @@
 import React from 'react';
-import { SignUpPage, AddTask, Users, EditTaskPage, Tasks, LoginPage, CategoriesPage } from '../src/pages'
+import { SignUpPage, AddTaskPage, Users, EditTaskPage, DashboardPage, LoginPage, CategoriesPage } from '../src/pages'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css'; 
@@ -19,9 +19,9 @@ function App() {
         
         <Route path="/users" component={Users} />
         {/* <Route path="/profile" component={Users} /> */}
-        <Route path="/dashboard" component={Tasks} />
+        <Route path="/dashboard" component={DashboardPage} />
         <Route path="/edit-task" component={EditTaskPage} />
-        <Route path="/add-tasks" component={AddTask} />
+        <Route path="/add-tasks" component={AddTaskPage} />
         <Route path="/categories" component={CategoriesPage} />
         <Route path="/" component={LoginPage} />
       </Switch>

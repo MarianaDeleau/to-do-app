@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useHistory } from "react-router";
 import { getUsers } from "../../api";
 import { User } from "../../types";
 
@@ -6,9 +7,11 @@ const useAuth = () => {
   const [userSession, setUserSession] = useState<User>(
     JSON.parse(localStorage.getItem("user")!)
   );
-
+  const { push } = useHistory();
+  
   const login = async (user: string, password: string) => {
     const users = await getUsers();
+ 
 
     const userLogged = users.find((u) => {
       if (u.email === user && u.password === password) {
@@ -17,21 +20,20 @@ const useAuth = () => {
       return false;
     });
 
-    console.log(userLogged);
-
     if (userLogged) {
-      setUserSession({ ...userLogged });     
+      setUserSession({ ...userLogged });
+      push('/dashboard')
     } else {
-
+      push('/login')
     }   
 
   };
 
   const logout = () => {
 
-   console.log('logout')
     if (userSession) {
       localStorage.removeItem("user")
+      push('/login')
    }
   };
 

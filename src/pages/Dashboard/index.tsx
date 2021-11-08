@@ -3,6 +3,7 @@ import { Col } from "react-bootstrap";
 import { getTasks } from "../../api";
 import { Layout, TaskWrapper } from "../../components";
 import { TaskCard } from "../../components/common";
+import { WithAuth } from "../../hoc";
 import { useAuth } from "../../hooks";
 import { Task } from "../../types";
 
@@ -105,4 +106,4 @@ const Tasks = () => {
   };
   
 
-export { Tasks }
+export const DashboardPage = WithAuth(Tasks)

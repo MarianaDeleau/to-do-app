@@ -10,11 +10,15 @@ const NavbarApp = () => {
     const { userSession, logout } = useAuth()
    
     return (
-    <Navbar bg="dark" variant="dark">
+    <Navbar collapseOnSelect  expand="lg" bg="dark" variant="dark">
         <Container>
                 <Navbar.Brand className="fs-1 fw-bold">TODO APP📌{userSession && <h6>Usuario: {`${userSession.name}`}</h6>}</Navbar.Brand>
-              
-                <Nav variant="tabs" className="justify-content-center">
+               <Button variant="secondary" size="lg" active className="rounded-circle ms-3 mb-3" onClick={(e) => logout()}>
+                    <FontAwesomeIcon icon={faPowerOff}/>
+                </Button>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                <Nav variant="tabs" className="ms-auto justify-content-center">
                  {menuItems.map((item) => {
                      return (
                         <Nav.Item>
@@ -23,9 +27,7 @@ const NavbarApp = () => {
                             );
                  })}              
                 </Nav>
-                <Button variant="secondary" size="lg" active className="rounded-circle mb-3" onClick={(e) => logout()}>
-                    <FontAwesomeIcon icon={faPowerOff}/>
-                </Button>
+                </Navbar.Collapse>
         </Container>
     </Navbar>
     )

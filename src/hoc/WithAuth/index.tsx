@@ -15,10 +15,9 @@ const WithAuth: withAuthenticationFn = (Component) => {
 
     if (!userSession && !publicRoutes.includes(location.pathname)) {
       push("/login");
+    } else if (userSession && publicRoutes.includes(location.pathname)){
+      push("/dashboard");
     }
-    // else {
-    //   push("/dashboard");
-    // }
 
     return isAuthenticated ? <Component /> : null;
   };

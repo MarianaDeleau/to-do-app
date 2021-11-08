@@ -4,6 +4,7 @@ import { Form } from "react-bootstrap";
 import { addtask } from "./api";
 import { Layout } from "../../components";
 import { useAuth } from "../../hooks";
+import { WithAuth } from "../../hoc";
 
 const defaultValues = {
   title: "",
@@ -122,4 +123,4 @@ const AddTask: FC = () => {
     
 }
 
-export { AddTask };
+export const AddTaskPage = WithAuth(AddTask)
