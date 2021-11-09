@@ -32,7 +32,7 @@ const Tasks = () => {
               if (userSession.id === item.user) {
                 if (item.progress === 'pendiente') {
                     return (                  
-                      <TaskCard id={item.id} title={item.title.toUpperCase()} description={item.description} progress={item.progress} user={item.user} creationDate={item.creationDate} startDate={item.startDate} completionDate={item.completionDate} >
+                      <TaskCard id={item.id} title={item.title.toUpperCase()} category={ item.category } description={item.description} progress={item.progress} user={item.user} creationDate={item.creationDate} startDate={item.startDate} completionDate={item.completionDate} >
                       </TaskCard>                  
                     )
                   }
@@ -47,7 +47,7 @@ const Tasks = () => {
                 if (userSession.id === item.user) {
                   if (item.progress === 'enproceso') {
                     return (                  
-                      <TaskCard id={item.id} title={item.title.toUpperCase()} description={item.description} progress={item.progress} user={item.user} creationDate={item.creationDate} startDate={item.startDate} completionDate={item.completionDate} >
+                      <TaskCard id={item.id} title={item.title.toUpperCase()} category={ item.category } description={item.description} progress={item.progress} user={item.user} creationDate={item.creationDate} startDate={item.startDate} completionDate={item.completionDate} >
                       </TaskCard>                  
                     )
                   }
@@ -62,7 +62,7 @@ const Tasks = () => {
                 if (userSession.id === item.user) {
                   if (item.progress === 'finalizada') {
                     return (                  
-                      <TaskCard id={item.id} title={item.title.toUpperCase()} description={item.description} progress={item.progress} user={item.user} creationDate={item.creationDate} startDate={item.startDate} completionDate={item.completionDate} >
+                      <TaskCard id={item.id} title={item.title.toUpperCase()} category={ item.category } description={item.description} progress={item.progress} user={item.user} creationDate={item.creationDate} startDate={item.startDate} completionDate={item.completionDate} >
                       </TaskCard>                  
                     )
                   }
@@ -77,7 +77,7 @@ const Tasks = () => {
                 if (userSession.id === item.user) {
                   if (item.progress === 'postergada') {
                     return (                  
-                      <TaskCard id={item.id} title={item.title.toUpperCase()} description={item.description} progress={item.progress} user={item.user} creationDate={item.creationDate} startDate={item.startDate} completionDate={item.completionDate} >
+                      <TaskCard id={item.id} title={item.title.toUpperCase()} category={ item.category } description={item.description} progress={item.progress} user={item.user} creationDate={item.creationDate} startDate={item.startDate} completionDate={item.completionDate} >
                       </TaskCard>                  
                     )
                   }
@@ -92,7 +92,7 @@ const Tasks = () => {
                 if (userSession.id === item.user) {
                   if (item.progress === 'cancelada') {
                     return (                  
-                      <TaskCard id={item.id} title={item.title.toUpperCase()} description={item.description} progress={item.progress} user={item.user} creationDate={item.creationDate} startDate={item.startDate} completionDate={item.completionDate} >
+                      <TaskCard id={item.id} title={item.title.toUpperCase()} category={ item.category } description={item.description} progress={item.progress} user={item.user} creationDate={item.creationDate} startDate={item.startDate} completionDate={item.completionDate} >
                       </TaskCard>                  
                     )
                   }

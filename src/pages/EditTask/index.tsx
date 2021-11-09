@@ -7,9 +7,12 @@ import { edittask } from "./api"
 import { getSelectedTasks } from '../../api'
 import { useHistory } from "react-router"
 import { WithAuth } from "../../hoc"
+import { Category } from "../../types"
+import { getCategories } from "../Categories/api"
 
 const defaultValues = {
   title: '',
+  category: '',
   description: '',
   progress: '',
   user: '',
@@ -20,15 +23,25 @@ const defaultValues = {
 
 const EditTask: FC =  () => {
 
-  const { idParams } = getParams()
+  const { idParams } = getParams();
   
-    const { push } = useHistory();
-    const [tarea, setTarea] = useState(defaultValues)
+  const { push } = useHistory();
+
+  const [tarea, setTarea] = useState(defaultValues);
+  const [category, setCategory] = useState<Category[]>();
    
+  const obtenerCategorías = async () => {
+    const response = await getCategories();
+    setCategory(response);
+  };
+
+  if (!category) {
+    obtenerCategorías();
+  }
+  
     useEffect(() => {
       idParams && getSelectedTasks(idParams).then((response) => {
-        setTarea(response);
-     
+        setTarea(response);     
     });
   }, [idParams]);
   
@@ -43,6 +56,7 @@ const EditTask: FC =  () => {
 
       return (
         <Layout mainClass="edit-task">
+          <h4>Editar tarea seleccionada</h4>
           <Form onSubmit={handleSubmit}>
             <div>
               <label htmlFor="title">Título</label>
@@ -55,7 +69,27 @@ const EditTask: FC =  () => {
                   setTarea({...tarea, title: e.target.value})
                 }}
               />
-            </div>    
+            </div>
+            <div>
+              <label htmlFor="progress">Categoría</label>
+              <select 
+                id="progress"
+                name="progress"
+                value={tarea?.category}
+                onChange={(e) => {
+                  setTarea({ ...tarea, category: e.target.value });
+                }}
+                required
+              >
+                {category?.map((item) => {
+                  if (userSession.id === item.user) {
+                    return (
+                      <option value={item.category}>{item.category}</option>)
+                  }
+                  return ''
+                })}
+              </select>
+            </div>
             <div>
               <label htmlFor="description">Descripción</label>
               <input
@@ -76,19 +110,17 @@ const EditTask: FC =  () => {
                 name="progress"
                 value={tarea?.progress}
                 onChange={(e) => {
-                  setTarea({...tarea, progress: e.target.value})
+                  setTarea({ ...tarea, progress: e.target.value });
                 }}
                 required
               >
-                <option value="" selected>Seleccione Estado</option>
                 <option value="pendiente">Pendiente</option>
                 <option value="enproceso">En Proceso</option>
                 <option value="finalizada">Finalizada</option>
                 <option value="postergada">Postergada</option>
                 <option value="cancelada">Cancelada</option>
-                </select>
-            </div>
-
+              </select>
+              </div>
             <div>
               <label htmlFor="creationDate">Fecha de Creación</label>
               <input

@@ -5,9 +5,12 @@ import { addtask } from "./api";
 import { Layout } from "../../components";
 import { useAuth } from "../../hooks";
 import { WithAuth } from "../../hoc";
+import { getCategories } from "../Categories/api";
+import { Category } from "../../types";
 
 const defaultValues = {
   title: "",
+  category: "",
   description: "",
   progress: "",
   creationDate: "",
@@ -18,6 +21,16 @@ const defaultValues = {
 const AddTask: FC = () => {
     
   const [inputs, setInputs] = useState(defaultValues);
+  const [category, setCategory] = useState<Category[]>();
+  
+  const obtenerCategorías = async () => {
+    const response = await getCategories();
+    setCategory(response);
+  };
+
+  if (!category) {
+    obtenerCategorías();
+}
 
     const {userSession} = useAuth()
   
@@ -44,7 +57,27 @@ const AddTask: FC = () => {
                 }}
               />
             </div>
-    
+            <div>
+              <label htmlFor="progress">Categoría</label>
+              <select 
+                id="progress"
+                name="progress"
+                value={inputs.category}
+                onChange={(e) => {
+                  setInputs({ ...inputs, category: e.target.value });
+                }}
+                required
+              >
+                <option value="" selected>Seleccione Categoría</option>
+                {category?.map((item) => {
+                  if (userSession.id === item.user) {
+                    return (
+                      <option value={item.category}>{item.category}</option>)
+                  }
+                  return ''
+                })}
+              </select>
+            </div>
             <div>
               <label htmlFor="description">Descripción</label>
               <input
