@@ -24,7 +24,7 @@ const useAuth = () => {
       setUserSession({ ...userLogged });
       push('/dashboard')
     } else {
-      push('/login')
+      push('/')
     }   
 
   };
@@ -33,7 +33,7 @@ const useAuth = () => {
 
     if (userSession) {
       localStorage.removeItem("user")
-      push('/login')
+      push('/')
    }
   };
 

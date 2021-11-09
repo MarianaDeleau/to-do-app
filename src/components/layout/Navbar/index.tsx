@@ -12,7 +12,7 @@ const NavbarApp = () => {
     return (
     <Navbar collapseOnSelect  expand="lg" bg="dark" variant="dark">
         <Container>
-                <Navbar.Brand className="fs-1 fw-bold">TODO APP📌{userSession && <h6>Usuario: {`${userSession.name}`}</h6>}</Navbar.Brand>
+                <Navbar.Brand className="fs-1 fw-bold">ToDO APP📌{userSession && <h6>Usuario: {`${userSession.name}`}</h6>}</Navbar.Brand>
                <Button variant="secondary" size="lg" active className="rounded-circle ms-3 mb-3" onClick={(e) => logout()}>
                     <FontAwesomeIcon icon={faPowerOff}/>
                 </Button>
