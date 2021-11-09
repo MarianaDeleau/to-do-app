@@ -9,6 +9,7 @@ export type User = {
 export type Task = {
   id: string;
   title: string;
+  category: string; 
   description: string;
   progress: string;
   user: string;

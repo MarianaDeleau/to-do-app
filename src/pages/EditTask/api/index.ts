@@ -2,6 +2,7 @@ import { api } from "../../../utils"
 
 type Payload = {
     title: string;
+    category: string; 
     description: string;
     progress: string;
     user: string;
