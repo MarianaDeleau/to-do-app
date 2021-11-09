@@ -7,6 +7,7 @@ import { useAuth } from "../../hooks";
 import { WithAuth } from "../../hoc";
 import { getCategories } from "../Categories/api";
 import { Category } from "../../types";
+import { useHistory } from "react-router";
 
 const defaultValues = {
   title: "",
@@ -23,6 +24,8 @@ const AddTask: FC = () => {
   const [inputs, setInputs] = useState(defaultValues);
   const [category, setCategory] = useState<Category[]>();
   
+  const { push } = useHistory();
+
   const obtenerCategorías = async () => {
     const response = await getCategories();
     setCategory(response);
@@ -38,7 +41,7 @@ const AddTask: FC = () => {
         e.preventDefault();
           
       addtask({ ...inputs, user: userSession.id });
-      
+      push("/dashboard");
       };
 
       return (
