@@ -16,10 +16,8 @@ main{
     align-items: center;
     background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/C6DC/production/_107080905_gettyimages-654239286.jpg);
     background-size: cover;
-    display: flex;
     flex-wrap: nowrap;
-    overflow: auto;
-   
+    overflow: auto;   
 }
 header{
     height: auto;
@@ -45,7 +43,7 @@ padding: 20px;
 height: auto;
 display: flex;
 flex-direction: column;
-justify-content: space-evenly;
+justify-content: center;
 
 }
 
@@ -116,13 +114,12 @@ padding: 0 !important
 }
 
 .linkButton{
-    color: #000000; 
+    color: #FFF; 
+    font-weight: 700;
     font-size: 15px;
     background: #F3C403;
-    margin-top: 20px 0;
-    padding: 2px 15px;
-    border-radius: 10px;
-    border: transparent;
+    padding: 2px 12px;
+    border-radius: 10px;   
 }
 
 

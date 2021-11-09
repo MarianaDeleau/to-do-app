@@ -26,13 +26,13 @@ const Tasks = () => {
      
       return (
         <Layout mainClass="tasks">
-          <TaskWrapper title='PENDIENTES' >
-            <Col className="d-flex flex-wrap justify-content-md-center">
+          <TaskWrapper title='PENDIENTES' color='bg-danger' >
+            <Col className="d-flex flex-wrap justify-content-center">
               {task?.map((item) => {
               if (userSession.id === item.user) {
                 if (item.progress === 'pendiente') {
                     return (                  
-                      <TaskCard id={item.id} title={item.title.toUpperCase()} category={ item.category } description={item.description} progress={item.progress} user={item.user} creationDate={item.creationDate} startDate={item.startDate} completionDate={item.completionDate} >
+                      <TaskCard id={item.id} title={item.title.toUpperCase()} category={ item.category } description={item.description} progress={item.progress} user={item.user} creationDate={item.creationDate} startDate={item.startDate} completionDate={item.completionDate} color='bg-danger' >
                       </TaskCard>                  
                     )
                   }
@@ -41,13 +41,13 @@ const Tasks = () => {
               })}               
           </Col>
           </TaskWrapper>
-          <TaskWrapper title='EN PROCESO' >
-            <Col className="d-flex flex-wrap justify-content-md-center">
+          <TaskWrapper title='EN PROCESO' color='bg-secondary'>
+            <Col className="d-flex flex-wrap justify-content-center">
               {task?.map((item) => {
                 if (userSession.id === item.user) {
                   if (item.progress === 'enproceso') {
                     return (                  
-                      <TaskCard id={item.id} title={item.title.toUpperCase()} category={ item.category } description={item.description} progress={item.progress} user={item.user} creationDate={item.creationDate} startDate={item.startDate} completionDate={item.completionDate} >
+                      <TaskCard id={item.id} title={item.title.toUpperCase()} category={ item.category } description={item.description} progress={item.progress} user={item.user} creationDate={item.creationDate} startDate={item.startDate} completionDate={item.completionDate} color='bg-secondary'>
                       </TaskCard>                  
                     )
                   }
@@ -56,13 +56,13 @@ const Tasks = () => {
               })}               
           </Col>
           </TaskWrapper>
-          <TaskWrapper title='FINALIZADAS' >
-            <Col className="d-flex flex-wrap justify-content-md-center">
+          <TaskWrapper title='FINALIZADAS' color='bg-success' >
+            <Col className="d-flex flex-wrap justify-content-center">
               {task?.map((item) => {
                 if (userSession.id === item.user) {
                   if (item.progress === 'finalizada') {
                     return (                  
-                      <TaskCard id={item.id} title={item.title.toUpperCase()} category={ item.category } description={item.description} progress={item.progress} user={item.user} creationDate={item.creationDate} startDate={item.startDate} completionDate={item.completionDate} >
+                      <TaskCard color='bg-success' id={item.id} title={item.title.toUpperCase()} category={ item.category } description={item.description} progress={item.progress} user={item.user} creationDate={item.creationDate} startDate={item.startDate} completionDate={item.completionDate} >
                       </TaskCard>                  
                     )
                   }
@@ -71,13 +71,13 @@ const Tasks = () => {
               })}               
           </Col>
           </TaskWrapper>
-          <TaskWrapper title='POSTERGADAS' >
-            <Col className="d-flex flex-wrap justify-content-md-center">
+          <TaskWrapper title='POSTERGADAS' color='bg-dark'>
+            <Col className="d-flex flex-wrap justify-content-center">
               {task?.map((item) => {
                 if (userSession.id === item.user) {
                   if (item.progress === 'postergada') {
                     return (                  
-                      <TaskCard id={item.id} title={item.title.toUpperCase()} category={ item.category } description={item.description} progress={item.progress} user={item.user} creationDate={item.creationDate} startDate={item.startDate} completionDate={item.completionDate} >
+                      <TaskCard id={item.id} title={item.title.toUpperCase()} category={ item.category } description={item.description} progress={item.progress} user={item.user} creationDate={item.creationDate} startDate={item.startDate} completionDate={item.completionDate} color='bg-dark'>
                       </TaskCard>                  
                     )
                   }
@@ -86,13 +86,13 @@ const Tasks = () => {
               })}               
           </Col>
           </TaskWrapper>
-          <TaskWrapper title='CANCELADAS' >
-            <Col className="d-flex flex-wrap justify-content-md-center">
+          <TaskWrapper title='CANCELADAS' color='bg-dark'>
+            <Col className="d-flex flex-wrap justify-content-center">
               {task?.map((item) => {
                 if (userSession.id === item.user) {
                   if (item.progress === 'cancelada') {
                     return (                  
-                      <TaskCard id={item.id} title={item.title.toUpperCase()} category={ item.category } description={item.description} progress={item.progress} user={item.user} creationDate={item.creationDate} startDate={item.startDate} completionDate={item.completionDate} >
+                      <TaskCard id={item.id} title={item.title.toUpperCase()} category={ item.category } description={item.description} progress={item.progress} user={item.user} creationDate={item.creationDate} startDate={item.startDate} completionDate={item.completionDate} color='bg-dark'>
                       </TaskCard>                  
                     )
                   }
