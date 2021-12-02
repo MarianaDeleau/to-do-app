@@ -138,9 +138,10 @@ padding: 0 !important
 }
 
 .maquina-escribir {
-    background: #F1C202;
+    background: transparent;
     position: relative;
     font-family: 'Short Stack', cursive;
+    bottom: 100px;
     
   }
   
