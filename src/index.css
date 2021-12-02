@@ -163,3 +163,17 @@ padding: 0 !important
       width: 0;
     }
   }
+  
+@media screen and (max-width: 500px) {
+
+    h4{
+        text-align: center;
+    }
+    .formCategories{
+        margin-top: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 !important;
+        }
+}

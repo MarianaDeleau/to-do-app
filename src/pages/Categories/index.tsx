@@ -35,7 +35,7 @@ const Categories: FC = () => {
     return (
         
       <Layout mainClass="categories">
-        <Container className="mt-5">
+        <Container className="formCategories">
           <Row className="justify-content-md-center">
             <Col md="auto">
               <h4>Por favor ingrese su nueva categoría:</h4>
