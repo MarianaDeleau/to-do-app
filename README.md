@@ -1,85 +1,48 @@
-## TODO APP
+### TODO APP
+
+TP práctica React - ADA Curso Desarrolladora FrontEnd
+
+Este repositorio fue creado trabajo práctico no obligatorio para la realización de las prácticas de los contenidos de Raect del curso de Desarrollo Frontend de ADA
+ToDO APP es una página control de lista de pendientes y post-it recordatorios que almacena la información del usuario y sus actividades en una base de datos de FIREBASE, con acceso exclusivo a sus tareas y datos una vez que se loguea el usuario. Solo accede a la información del ususario logueado. 
 
 
-> 1 Crear una app con create-react-app (opcional typescript)
+## Requisitos
+Terminal
+Para poder ejecutar el código vamos a usar la terminal, se puede abrir la Terminal directamente, o ejecutarla desde el VSCode. 
 
-> 2 Limpiar el proyecto
-
-> 3 Crear las carpetas pages, components, hooks y assets
-
-> 4 Crear las paginas dashboard y login
-
-### Login
-
-> 1 Crear un formulario que reciba emial y contraseña
-
-> 2 Al realizar click sobre el boton enviar, debe mostrar un log avisando que el evento reaccionó
-
-### Dashboard
-
-> 1 Crear una interfaz de tu agrado para gestionar tareas (pueden elegir alguna alternativa previamente consultada con el profe)
-
-> 2 Las tareas tienen que estar organizadas por su estado (pendiente, en proceso, finalizada, cancelada, postergada).
-
-### Tareas
-
-> 1 Crear un formulario para dar de alta las tareas. Estas tienen título, descripción, estado, fecha de creacion, fecha inicio, fecha fin y usuario. Puede ser una nueva pantalla (en la carpeta page).
+Es necesario tener instalado Node, React y Typescript.
 
 
+## Estructura
+Contiene estilos de Boostrap y algunas propiedades sobre-escritos en el CSS ./index
 
-### Firebase 
+./home
+Welcome page
+./login
+Sign in page
+/sign-up
+Página de registro de usuario
+./Dashboard
+Tablero de tareas
+./add-tasks
+Formulario para alta de tareas nuevas
+./edit-task?${id}
+Formulario para editar datos, fechas y estado de las tareas
+./categories
+Formulario para agregar categorías de tareas
+./users
+Fichas de usuarios registrados. Solo se accede a los datos del usuario logueado, de los demás solo se puede acceder al nombre. 
+Botón de Logout
 
-> 1 Crear una nueva app en la consola para todoapp
 
-> 2 Crear una "Realtime Database"
+## Observaciones del trabajo:
 
-> 3 Integar firebase a la app.
+- Se realizó una branch por cada función, inclusive para cambiar las mismas 
+- Se utilizó el framework Bootstrap
+- Diseño web responsive para mobile 
 
 
+## Deploy en 
 
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Desarrolladora: 
+- Mariana Deleau: [portafolio] (https://marianadeleau.github.io/ada-8va-portafolio/)
